@@ -10,8 +10,8 @@ const app = express();
 
 // prepend '/api/auth/sign-up' to each specific routes endpoint
 app.use('/api/v1/auth', authRouter);
-app.use('/api/v1/user', userRouter);
-app.use('/api/v1/sub', subRouter);
+app.use('/api/v1/users', userRouter);
+app.use('/api/v1/subscriptions', subRouter);
 
 app.get('/', (req, res) => {
 	res.send('Welcome to the Subscription Tracker API');
