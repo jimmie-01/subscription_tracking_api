@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import User from '../models/user.model.js';
 import jwt from 'jsonwebtoken';
 
-export const signup = async (req, res, next) => {
+export const signUp = async (req, res, next) => {
 	const session = await mongoose.startSession();
 	session.startTransaction();
 
@@ -50,10 +50,10 @@ export const signup = async (req, res, next) => {
 	}
 }
 
-export const signin = async (req, res, next) => {
+export const signIn = async (req, res, next) => {
 
 }
 
-export const signout = async (req, res, next) => {
+export const signOut = async (req, res, next) => {
 
 }
