@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import authorize from '../middleware/auth.middleware.js';
-import { createSubscription } from '../controllers/subscription.controller.js';
+import { createSubscription, getUserSubscriptions } from '../controllers/subscription.controller.js';
 
 const subRouter = Router();
 
@@ -14,7 +14,7 @@ subRouter.put('/:id', (req, res) => {});
 
 subRouter.delete('/:id', (req, res) => {});
 
-subRouter.get('/user/:id', (req, res) => {});
+subRouter.get('/user/:id', authorize, getUserSubscriptions);
 
 subRouter.put('/:id/cancel', (req, res) => {});
 
