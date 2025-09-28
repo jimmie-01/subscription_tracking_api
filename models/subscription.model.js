@@ -18,7 +18,7 @@ const subscriptionSchema = new mongoose.Schema({
 		enum: ['USD', 'GBP', 'EURO', 'NGN'],
 		default: 'NGN',
 	},
-	fequency: {
+	frequency: {
 		type: String,
 		enum: ['daily', 'weekly', 'monthly', 'yearly'],
 	},
@@ -70,6 +70,11 @@ subscriptionSchema.pre('save', function(next) {
 			weekly: 7,
 			monthly: 30,
 			yearly: 365
+		}
+
+		// Add validation for frequency
+		if (!this.frequency || !renewalPeriods[this.frequency]) {
+			return next(new Error('Invalid or missing frequency'));
 		}
 
 		this.renewalDate = new Date(this.startDate);
