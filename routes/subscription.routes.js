@@ -4,20 +4,20 @@ import { createSubscription, getUserSubscriptions } from '../controllers/subscri
 
 const subRouter = Router();
 
-subRouter.get('/', (req, res) => {});
+subRouter.get('/', (req, res) => res.send({ title: 'GET all subscritions'}));
 
-subRouter.get('/:id', (req, res) => {});
+subRouter.get('/:id', (req, res) => res.send({ title: 'GET Subscription Details' }));
 
 subRouter.post('/', authorize, createSubscription);
 
-subRouter.put('/:id', (req, res) => {});
+subRouter.put('/:id', (req, res) => res.send({ title: 'UPDATE Subscription' }));
 
-subRouter.delete('/:id', (req, res) => {});
+subRouter.delete('/:id', (req, res) => res.send({ title: 'DELETE Subscription' }));
 
 subRouter.get('/user/:id', authorize, getUserSubscriptions);
 
-subRouter.put('/:id/cancel', (req, res) => {});
+subRouter.put('/:id/cancel', (req, res) => res.send({ title: 'CANCEL Subscription' }));
 
-subRouter.get('/upcoming-renewals', (req, res) => {});
+subRouter.get('/upcoming-renewals', (req, res) => res.send({ title: 'GET Upcoming Renewals' }));
 
 export default subRouter;
