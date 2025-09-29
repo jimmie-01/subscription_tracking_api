@@ -29,3 +29,19 @@ export const getUserSubscriptions = async (req, res, next) => {
 		next(error);
 	}
 }
+
+export const getAllSubscriptions = async (req, res, next) => {
+	try {
+		const subscriptions = await Subscription.find();
+
+		if(!subscriptions) {
+			const error = new Error('No Subscription Found');
+			error.statusCode = 404;
+			throw error;
+		}
+
+		res.status(200).json({ success: true, data: subscriptions });
+	} catch (error) {
+		next(error);	
+	}
+}
