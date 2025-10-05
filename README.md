@@ -3,3 +3,4 @@
 ## Auhtorize User
 
 ## Auto email remainder with Upstash
+## Register And Authenticate USer
